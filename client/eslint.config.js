@@ -5,9 +5,9 @@ import globals from 'globals';
 
 import js from '@eslint/js';
 import typescriptPlugin
-  from '@typescript-eslint/eslint-plugin'; // Добавлено для плагина TypeScript
+  from '@typescript-eslint/eslint-plugin';
 import typescript
-  from '@typescript-eslint/parser'; // Добавлено для поддержки TypeScript
+  from '@typescript-eslint/parser';
 
 export default {
   ignores: ['dist'],
@@ -15,7 +15,7 @@ export default {
   languageOptions: {
     ecmaVersion: 2020,
     globals: globals.browser,
-    parser: typescript, // Используйте парсер TypeScript
+    parser: typescript, 
     parserOptions: {
       ecmaVersion: 'latest',
       ecmaFeatures: { jsx: true },
@@ -27,7 +27,7 @@ export default {
     react,
     'react-hooks': reactHooks,
     'react-refresh': reactRefresh,
-    '@typescript-eslint': typescriptPlugin, // Добавлено для плагина TypeScript
+    '@typescript-eslint': typescriptPlugin,
   },
   rules: {
     "import/named": "error",
@@ -44,7 +44,6 @@ export default {
       'warn',
       { allowConstantExport: true },
     ],
-    // Добавьте правила для TypeScript
-    '@typescript-eslint/no-unused-vars': ['warn'], // Пример правила для TypeScript
+    '@typescript-eslint/no-unused-vars': ['warn'],
   },
 };
