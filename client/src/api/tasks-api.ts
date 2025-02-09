@@ -3,9 +3,9 @@ import { TaskType } from "redux/features/tasksSlice";
 
 // Base URL for the tasks API
 const API_URL =
-  import.meta.env.MODE === "development"
-    ? "http://localhost:5001/api/tasks"
-    : "/api";
+  import.meta.env.NODE_ENV === "development"
+    ? import.meta.env.VITE_API_TASKS
+    : "/api/tasks";
 
 export interface TasksAPI {
   getTasks: () => Promise<TaskType[]>;

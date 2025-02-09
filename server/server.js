@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(helmet()); 
 
 const corsOptions = {
-  origin: ['http://localhost:3000', 'http://dev.com'],
+  origin: process.env.CORS_ORIGIN,
   methods: ['GET', 'POST', 'PUT', 'DELETE'], 
   credentials: true, 
 };
@@ -37,22 +37,16 @@ app.use('/api/tasks', tasksRoutes);
 app.use('/api/feedbacks', feedbacksRoutes);
 
 // Serve static files
-app.use(express.static(path.join(__dirname, "client", "dist")));
+app.use(express.static(path.join(__dirname, "/client/dist")));
 
 // Handle all other requests
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
 });
 
-// Start the server and connect to MongoDB
-app.listen(PORT, async () => {
-    try {
-        await connectMongoDB(); 
-        console.log(`Server running on port ${PORT}`);
-    } catch (error) {
-        console.error('Error connecting to MongoDB:', error);
-        process.exit(1); // Exit the process with failure
-    }
+app.listen(PORT, () => {
+    connectMongoDB();
+    console.log(`Server Running on port ${PORT}`);
 });
 
 export default app;

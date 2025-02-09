@@ -3,9 +3,9 @@ import { NoteType } from "../redux/features/notesSlice";
 
 // Base URL for the tasks API
 const API_URL =
-  import.meta.env.MODE === "development"
-    ? "http://localhost:5001/api/notes"
-    : "/api";
+  import.meta.env.NODE_ENV === "development"
+    ? import.meta.env.VITE_API_NOTES
+    : "/api/notes";
 
 export interface NotesAPI {
   getNotes: () => Promise<NoteType[]>;

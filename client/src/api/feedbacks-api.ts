@@ -3,9 +3,9 @@ import { FeedbackType } from "../redux/features/feedbacksSlice";
 
 // Base URL for the tasks API
 const API_URL =
-  import.meta.env.MODE === "development"
-    ? "http://localhost:5001/api/feedbacks"
-    : "/api";
+  import.meta.env.NODE_ENV === "development"
+    ? import.meta.env.VITE_API_FEEDBACKS
+    : "/api/feedbacks";
 
 export interface FeedbacksAPI {
   getFeedbacks: () => Promise<FeedbackType[]>;
