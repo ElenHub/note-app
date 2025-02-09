@@ -1,0 +1,33 @@
+# Node modules
+node_modules/
+
+# Локальные настройки окружения
+.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Сборки
+dist/
+
+# Storybook
+.storybook/
+storybook-static/
+*.stories.tsx
+
+# Jest
+coverage/
+*.test.js
+*.test.ts
+*.test.jsx
+*.test.tsx
+
+# IDE и редакторы
+.vscode/
+!.vscode/extensions.json
+.idea/
+

@@ -1,0 +1,24 @@
+.task {
+    background-color: #f0f0f0; /* Светло-серый фон для задач */
+    border: 1px solid #ccc; /* Серый бордер */
+     border-radius: 28px; /*Закругленные углы */
+    padding: 10px; /* Отступы внутри блока */
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+    color: black;
+    margin-bottom: 18px;
+}
+
+.task:hover {
+    background-color: #e0e0e0; /* Цвет при наведении */
+}
+
+.isDone {
+    opacity: 0.5;
+    background-color: #d0ffd0; /* Убедитесь, что после свойства стоит точка с запятой */
+    text-decoration: line-through;
+    color: black; 
+    border-radius: 28px;
+    margin-bottom: 18px;
+}
+
+ 
