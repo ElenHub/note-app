@@ -1,7 +1,7 @@
 # Node modules
 node_modules/
 
-# Локальные настройки окружения
+# Local environment settings
 .env
 
 # Logs
@@ -11,8 +11,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Сборки
-dist/
+# Builds
+dist
+dist-ssr
+*.local
 
 # Storybook
 .storybook/
@@ -26,7 +28,7 @@ coverage/
 *.test.jsx
 *.test.tsx
 
-# IDE и редакторы
+# Editors
 .vscode/
 !.vscode/extensions.json
 .idea/
