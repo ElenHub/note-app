@@ -56,8 +56,8 @@ const NoteContainer: React.FC<NoteContainerProps> = ({
   const [fontColor, setFontColor] = useState<string>(initialNote ? initialNote.fontColor : "#000000");
   const [selectedDate, setSelectedDate] = useState<dayjs.Dayjs>(dayjs());
   const [category, setCategory] = useState<string>(initialNote ? initialNote.category : "");
-  const [loading, setLoading] = useState(false); // Loading state for async operations
-  const navigate = useNavigate(); // Hook for programmatic navigation
+  const [loading, setLoading] = useState(false); 
+  const navigate = useNavigate();
 
   // Function to validate the form inputs
   const validateForm = (): boolean => {
