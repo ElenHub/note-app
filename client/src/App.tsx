@@ -11,7 +11,7 @@ import { getToggleStyle } from "./styles";
 import Login from "./pages/login/Login";
 import SignUp from "./pages/signup/SignUp";
 import { useAuthContext } from "./context/AuthContext";
-import ProtectedRoute from "./components/routes/ProtectedRoute";
+import ProtectedRoute from "./components/Routes/ProtectedRoute";
 import { ToastContainer } from "react-toastify";
 import NotFound from './components/NotFound'
 
