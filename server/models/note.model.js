@@ -26,7 +26,7 @@ const noteSchema = new mongoose.Schema(
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: 'User', // Reference to User model
+      ref: 'User',
     },
   },
   { timestamps: true }

@@ -1,6 +1,7 @@
+import {config} from 'dotenv'; 
+config(); 
 import express from 'express'; 
 import cors from 'cors'; 
-import dotenv from 'dotenv'; 
 import helmet from 'helmet'; 
 import userRoutes from './routes/user.routes.js';
 import notesRoutes from './routes/notes.routes.js';
@@ -11,7 +12,6 @@ import connectMongoDB from './db/connectMongoDB.js';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 
-dotenv.config(); 
 const app = express();
 const __dirname = path.resolve();
 const PORT = process.env.PORT || 5001;
@@ -37,11 +37,13 @@ app.use('/api/tasks', tasksRoutes);
 app.use('/api/feedbacks', feedbacksRoutes);
 
 // Serve static files
-app.use(express.static(path.join(__dirname, "/client/dist")));
+if(process.env.NODE_ENV==="production"){
+app.use(express.static(path.join(__dirname, "../client/dist")));
+}
 
-// Handle all other requests
+// // // Handle all other requests
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+    res.sendFile(path.join(__dirname, "../client", "dist", "index.html"));
 });
 
 app.listen(PORT, () => {

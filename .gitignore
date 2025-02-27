@@ -19,14 +19,17 @@ dist-ssr
 # Storybook
 .storybook/
 storybook-static/
+stories
 *.stories.tsx
 
 # Jest
 coverage/
+__tests__
 *.test.js
 *.test.ts
 *.test.jsx
 *.test.tsx
+jest.config.ts
 
 # Editors
 .vscode/

@@ -21,6 +21,7 @@ export interface TasksAPI {
 }
 
 export const tasksAPI: TasksAPI = {
+   // Fetch all tasks from the API
   getTasks: async () => {
     try {
       const response = await axios.get(API_URL, { withCredentials: true });

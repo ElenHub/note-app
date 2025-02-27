@@ -14,15 +14,14 @@ interface SignupData {
     email: string;
     password: string;
     confirmPassword: string;
-    theme?: string;
 }
 
 const useSignup = () => {
     const [loading, setLoading] = useState<boolean>(false);
     const { setAuthUser } = useAuthContext();
 
-    const signup = async ({ username, email, password, confirmPassword, theme }: SignupData) => {
-        if (!handleInputErrors({ username, email, password, confirmPassword, theme })) return;
+    const signup = async ({ username, email, password, confirmPassword }: SignupData) => {
+        if (!handleInputErrors({ username, email, password, confirmPassword })) return;
 
         setLoading(true);
         try {
@@ -31,7 +30,6 @@ const useSignup = () => {
                 email,
                 password,
                 confirmPassword,
-                theme,
             });
             const data = response.data;
 

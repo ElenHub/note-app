@@ -3,9 +3,7 @@ import { createContext, useContext, useState } from "react";
 export const AuthContext = createContext({
     authUser: null,
     setAuthUser: () => {},
-    logout: () => {},
-    darkMode: false,
-    setDarkMode: () => {}
+    logout: () => {}
 });
 
 export const useAuthContext = () => {
@@ -14,19 +12,14 @@ export const useAuthContext = () => {
 
 export const AuthContextProvider = ({ children }) => {
     const [authUser, setAuthUser] = useState(JSON.parse(localStorage.getItem("notes-app")) || null);
-    const [darkMode, setDarkMode] = useState(() => {
-        const savedMode = localStorage.getItem('darkMode');
-        return savedMode === 'true';
-    });
 
     const logout = () => {
         setAuthUser(null);
-        setDarkMode(false); 
         localStorage.removeItem('notes-app');
     };
 
     return (
-        <AuthContext.Provider value={{ authUser, setAuthUser, logout, darkMode, setDarkMode }}>
+        <AuthContext.Provider value={{ authUser, setAuthUser, logout }}>
             {children}
         </AuthContext.Provider>
     );

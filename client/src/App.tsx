@@ -1,30 +1,31 @@
-import React, { useCallback } from "react";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import React, { useCallback, useState } from "react";
+import { HashRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Container } from "@mui/material";
-import BasicDateRangeCalendar from "./components/Calendar/BasicDateRangeCalendar";
-import CreateNote from "./components/CreateNote/CreateNote";
-import EditNote from "./components/EditNote/EditNote";
-import FeedbackForm from "./components/FeedbackForm/FeedbackForm";
-import Note from "./components/Note/Note";
+import BasicDateRangeCalendar from "./components/Tasks/BasicDateRangeCalendar";
+import CreateNote from "./components/Notes/CreateNote";
+import EditNote from "./components/Notes/EditNote";
+import FeedbackForm from "./components/Feedbacks/FeedbackForm";
+import Note from "./components/Notes/Note";
 import useNotes from "./hooks/useNotes";
 import { getToggleStyle } from "./styles";
 import Login from "./pages/login/Login";
 import SignUp from "./pages/signup/SignUp";
 import { useAuthContext } from "./context/AuthContext";
-import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import ProtectedRoute from "./components/routes/ProtectedRoute";
 import { ToastContainer } from "react-toastify";
+import NotFound from './components/NotFound'
 
 function App() {
-  const { authUser, darkMode, setDarkMode } = useAuthContext();
+  const { authUser } = useAuthContext();
   const { notes } = useNotes();
+
+  const [darkMode, setDarkMode] = useState(false);
   const toggleStyle = getToggleStyle(darkMode);
 
-  // Function to toggle dark mode
+  // Функция для переключения темного режима
   const handleToggleDarkMode = useCallback(() => {
-    const newMode = !darkMode;
-    setDarkMode(newMode);
-    localStorage.setItem("darkMode", JSON.stringify(newMode));
-  }, [darkMode, setDarkMode]);
+    setDarkMode((prevMode) => !prevMode);
+  }, []);
 
   return (
     <main
@@ -33,7 +34,7 @@ function App() {
     >
       <Container maxWidth="md" style={{ paddingTop: "20px" }}>
         <div className="container">
-          <ToastContainer /> {/* Toast notifications container */}
+          <ToastContainer />
           <BrowserRouter>
             <Routes>
               <Route
@@ -42,8 +43,8 @@ function App() {
                   authUser ? (
                     <Note
                       notes={notes}
-                      handleToggleDarkMode={handleToggleDarkMode}
                       toggleStyle={toggleStyle}
+                      handleToggleDarkMode={handleToggleDarkMode}
                       darkMode={darkMode}
                     />
                   ) : (
@@ -71,15 +72,12 @@ function App() {
                   )
                 }
               />
-
-              {/* Protected routes for certain components */}
               <Route
                 path="/notes"
                 element={
                   <ProtectedRoute>
                     <Note
                       notes={notes}
-                      handleToggleDarkMode={handleToggleDarkMode}
                       toggleStyle={toggleStyle}
                       darkMode={darkMode}
                     />
@@ -118,6 +116,7 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
         </div>
