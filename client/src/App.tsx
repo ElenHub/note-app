@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { HashRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Container } from "@mui/material";
 import BasicDateRangeCalendar from "./components/Tasks/BasicDateRangeCalendar";
 import CreateNote from "./components/Notes/CreateNote";

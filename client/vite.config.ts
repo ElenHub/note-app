@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base:"/products-store/",
+  base:"/note-app/",
   build: {
     outDir: 'dist', 
     rollupOptions: {
