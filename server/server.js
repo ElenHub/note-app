@@ -1,6 +1,6 @@
-import express from "express";
 import { config } from "dotenv";
 config();
+import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import userRoutes from "./routes/user.routes.js";
