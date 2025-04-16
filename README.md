@@ -4,9 +4,9 @@ Demo Application: [https://note-app-pdru.onrender.com](https://note-app-pdru.onr
 
 ## Technologies Used
 
-- **Frontend**: ![Frontend](https://skillicons.dev/icons?i=react,materialui) 
-- **Backend**: ![Backend](https://skillicons.dev/icons?i=nodejs,express) 
-- **Database**: ![Database](https://skillicons.dev/icons?i=mongodb)
+- **Frontend**: React, Material-UI
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
 
 ## Setup .env File
 
